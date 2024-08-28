@@ -16,6 +16,7 @@ directory.
 import numpy as np
 import matplotlib.pyplot as plt
 import nidaqmx #Driver to read data from daqboard
+import keyboard
 
 # The next two lines are a couple of notes to make sure you're inputting things correctly
 # Press enter in the console to move past them
@@ -38,28 +39,31 @@ plt.xlabel(r'$T_{sample}$')
 plt.ylabel(r'$\Delta T$')
 plt.title('Press Ctrl+C to exit')
 
+print("Beginning data acquisition loop. Hold 'd' to exit")
+
 with nidaqmx.Task() as task:
     #I add two channels from the DAQ board to record two voltages
     task.ai_channels.add_ai_voltage_chan('Dev2/ai0')
     task.ai_channels.add_ai_voltage_chan('Dev2/ai1')
-    try:
-        while True and np.shape(sampleTempArray)[0] < 1200: #Program exits after 20 minutes of acquisition
-            # First I read two voltages
-            voltage=task.read(number_of_samples_per_channel=1)
-            # Next, I store them as temperatures after applying calibration factors
-            al2o3Temp = voltage[0][0] * 1 + 0 # Put calibration data here
-            sampleTemp = voltage[1][0] * 1 + 0 # Put calibration data here
-            # Temperatures get appended to arrays
-            al2o3TempArray=np.append(al2o3TempArray,al2o3Temp)
-            sampleTempArray=np.append(sampleTempArray,sampleTemp)
-            #Plot the data, then pause
-            plt.plot(sampleTemp,(al2o3Temp-sampleTemp),'k.')
-            plt.draw()
-            plt.pause(1/pointsPerSecond)
-            
+    while True and np.shape(sampleTempArray)[0] < 1200: #Program exits after 20 minutes of acquisition
+        # First I read two voltages
+        voltage=task.read(number_of_samples_per_channel=1)
+        # Next, I store them as temperatures after applying calibration factors
+        al2o3Temp = voltage[0][0] * 1 + 0 # Put calibration data here
+        sampleTemp = voltage[1][0] * 1 + 0 # Put calibration data here
+        # Temperatures get appended to arrays
+        al2o3TempArray=np.append(al2o3TempArray,al2o3Temp)
+        sampleTempArray=np.append(sampleTempArray,sampleTemp)
+        #Plot the data, then pause
+        plt.plot(sampleTemp,(al2o3Temp-sampleTemp),'k.')
+        plt.draw()
+        plt.pause(1/pointsPerSecond)
+        if keyboard.is_pressed("d"):
+            print("Ending test loop")
+            break
     
-    except KeyboardInterrupt:
-        print('ending data acquisition')
+#    except KeyboardInterrupt:
+#        print('ending data acquisition')
     
 # Here I combine the arrays, transpose them so that they're columns, and save them
 # to a user specified filename.
