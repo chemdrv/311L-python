@@ -1,0 +1,12 @@
+Lab computer set up:
+
+9/24/2024
+- Install Mini-forge.
+- Pull sobasic.yml and spyder.yml from chemdrv/chem311 GitHub account and put in user folder
+- "conda env create -f sobasic.yml"
+- "conda env create -f spyder.yml"
+- "conda activate spyder"
+- "pip install nidaqmx"
+- "python -m nidaqmx installdriver". When the installer pops up with a list of things to install, uncheck everything except the top two (Certificates and the graphical interface)
+- Launch spyder. Tools->Preferences->Ipython console->Graphics->Backend->Automatic
+- Change theme from Spyder dark to regular Spyder
