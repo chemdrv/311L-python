@@ -1,0 +1,9 @@
+name: spyder
+dependencies:
+ - numpy
+ - pandas
+ - matplotlib
+ - scipy
+ - jupyterlab
+ - spyder
+ - pip
