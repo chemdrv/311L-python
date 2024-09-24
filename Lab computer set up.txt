@@ -10,3 +10,5 @@ Lab computer set up:
 - "python -m nidaqmx installdriver". When the installer pops up with a list of things to install, uncheck everything except the top two (Certificates and the graphical interface)
 - Launch spyder. Tools->Preferences->Ipython console->Graphics->Backend->Automatic
 - Change theme from Spyder dark to regular Spyder
+- Download current background image from GitHub and set as desktop background
+- Set Firefox to default web browser
