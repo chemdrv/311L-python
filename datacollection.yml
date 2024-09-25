@@ -1,4 +1,4 @@
-name: spyder
+name: datacollection
 dependencies:
  - numpy
  - pandas
@@ -6,4 +6,5 @@ dependencies:
  - scipy
  - jupyterlab
  - spyder
+ - keyboard
  - pip
