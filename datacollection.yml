@@ -1,0 +1,10 @@
+name: datacollection
+dependencies:
+ - numpy
+ - pandas
+ - matplotlib
+ - scipy
+ - jupyterlab
+ - spyder
+ - keyboard
+ - pip
