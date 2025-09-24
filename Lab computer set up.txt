@@ -1,14 +1,17 @@
 Lab computer set up:
 
-9/24/2024
+9/24/2025
 - Install Mini-forge.
-- Pull sobasic.yml and spyder.yml from chemdrv/chem311 GitHub account and put in user folder
+- Pull sobasic.yml and datacollection.yml from chemdrv/chem311 GitHub account and put in user folder
 - "conda env create -f sobasic.yml"
-- "conda env create -f spyder.yml"
-- "conda activate spyder"
+- "conda env create -f datacollection.yml"
+- "conda activate datacollection"
 - "pip install nidaqmx"
 - "python -m nidaqmx installdriver". When the installer pops up with a list of things to install, uncheck everything except the top two (Certificates and the graphical interface)
 - Launch spyder. Tools->Preferences->Ipython console->Graphics->Backend->Automatic
 - Change theme from Spyder dark to regular Spyder
 - Download current background image from GitHub and set as desktop background
 - Set Firefox to default web browser
+- Create Desktop folder "Dr Vs scripts"
+- From GitHub grab "dataacquire.py", "dataacquire_keyboard.py", and "soundvelocity.py" and put in script folder
+- Look for notifications/movement and unpin/remove
