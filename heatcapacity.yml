@@ -1,9 +1,0 @@
-name: heatcapacity
-dependencies:
- - numpy
- - pandas
- - matplotlib
- - scipy
- - jupyterlab
- - spyder
- - python-sounddevice

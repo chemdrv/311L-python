@@ -7,4 +7,5 @@ dependencies:
  - jupyterlab
  - spyder
  - keyboard
+ - python-sounddevice
  - pip
